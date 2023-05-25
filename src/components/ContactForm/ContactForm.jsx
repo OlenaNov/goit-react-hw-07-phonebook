@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Input, Label, SubmitContact } from "./ContactForm.styled";
-import { addContact } from "redux/contactsSlice";
+import { addContact } from "redux/operations";
+// import { addContact } from "redux/contactsSlice";
+
 
 function ContactForm() {
 
@@ -42,6 +44,7 @@ function ContactForm() {
                         Notify.warning(`${name} is already in contacts`);
                         return;
                 };
+
                 dispatch(addContact(name, number));
                 setName('');
                 setNumber('');
